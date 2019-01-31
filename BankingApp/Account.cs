@@ -52,7 +52,6 @@ namespace BankingApp
             {
                 AcctBalance += amount;
             }
-
         }
         
         public void Withdrw(double amount)
@@ -70,11 +69,16 @@ namespace BankingApp
             AcctBalance -= amount;            
             
         }
-        public void Print()  // print statement 
+        // print statement 
+
+        public virtual string Print()  
         {
-            Console.WriteLine($" ID = {Id}, Description =  {Description} Balance = { AcctBalance}");
+            return $" ID = {Id}, Description =  {Description} Balance = { AcctBalance}";
         }
-        public Account(string NewDescription) // constructor
+        
+        // constructor
+
+        public Account(string NewDescription) 
         {
             Id = NextId++;
             if (NewDescription == null)

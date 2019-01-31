@@ -25,6 +25,11 @@ namespace BankingApp
             var IntToBePaid = GetBalance() * GetIntRate();
             Deposit(IntToBePaid);
         }
+        public override string Print()
+        {
+            return base.Print() + $" interest rate = {IntRate}";
+        }
+
 
         public Savings(string NewDescription) : base(NewDescription)
         {
