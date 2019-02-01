@@ -8,14 +8,14 @@ namespace BankingApp
 {
     class Savings : Account  // this is an Inheritance class. It has access to all the public methods in the Account class.
     {
-        private double IntRate { get; set; } = 0.01;
+        private decimal IntRate { get; set; } = 0.01M;
 
-        public double GetIntRate()
+        public decimal GetIntRate()
         {
             return IntRate;
         }
 
-        public void SetIntRate(double NewIntRate)
+        public void SetIntRate(decimal NewIntRate)
         {
             IntRate = NewIntRate;
         }
@@ -25,15 +25,15 @@ namespace BankingApp
             var IntToBePaid = GetBalance() * GetIntRate();
             Deposit(IntToBePaid);
         }
+
         public override string Print()
         {
             return base.Print() + $" interest rate = {IntRate}";
         }
-
-
+        
         public Savings(string NewDescription) : base(NewDescription)
         {
-            SetIntRate(0.01);
+            SetIntRate(0.01m);
         }
         
         public Savings() : this(null)

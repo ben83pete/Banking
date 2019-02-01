@@ -12,9 +12,9 @@ namespace BankingApp
 
         private int Id { get; set; }
         private string Description { get; set; }
-        private double AcctBalance { get; set; }
+        private decimal AcctBalance { get; set; }
 
-        public void TransferTo(double Amount, Account account)
+        public void TransferTo(decimal Amount, Account account)
         {
             var BeforeWithdraw = GetBalance();
             Withdrw(Amount);
@@ -30,19 +30,20 @@ namespace BankingApp
         {
             return Id;
         }
-        public string GetAcctType()
+        public string GetDescription()
         {
             return Description;
         }
-        public double GetBalance()
+        public decimal GetBalance()
         {
             return AcctBalance;
         }
+
         public void SetDescription(string NewDescription)
         {
             Description = NewDescription;
         }
-        public void Deposit(double amount)
+        public void Deposit(decimal amount)
         {
             if (amount <= 0)
             {
@@ -54,7 +55,7 @@ namespace BankingApp
             }
         }
         
-        public void Withdrw(double amount)
+        public void Withdrw(decimal amount)
         {
             if (amount <= 0)
             {
@@ -89,7 +90,7 @@ namespace BankingApp
             {
                 Description = NewDescription;
             }
-            AcctBalance = 0;
+            AcctBalance = 0;            
         }
         public Account() : this (null)   // This constructor calls the other constructor and passes in a null value
         {
