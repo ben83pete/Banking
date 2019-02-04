@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankingApp
 {
-    class Savings : Account  // this is an Inheritance class. It has access to all the public methods in the Account class.
+    class Savings : Account, IPrintable  // this is an Inheritance class. It has access to all the public methods in the Account class.
     {
         private decimal IntRate { get; set; } = 0.01M;
 

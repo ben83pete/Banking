@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankingApp
 {
-    class Checking  // This is a composition class, with the Account class listed as a variable.  we can call methods from the account class'
-                    //
+    class Checking: IPrintable  // IPrintable is an interface
+
+      // This is a composition class, with the Account class listed as a variable.  
+      //  we can call methods from the account class'
+                    
     {
         private Account account { get; set; }
     
@@ -43,7 +46,7 @@ namespace BankingApp
         }
         public string Print()
         {
-            return account.Print() + $" Check Number ={ NextCheckNumber}"; 
+            return account.Print() + $" Check Number = { NextCheckNumber}"; 
         }
         public Checking(string NewDescription)
         {

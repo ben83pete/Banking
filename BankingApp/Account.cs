@@ -5,16 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BankingApp 
-{
-    class Account
+{                         // IComparable is in interface.
+    class Account : IComparable<Account>, IPrintable  // IComparable set this class so that data is now able to be sorted
     {
         private static int NextId = 1;
-
         private int Id { get; set; }
         private string Description { get; set; }
         private decimal AcctBalance { get; set; }
 
-        public void TransferTo(decimal Amount, Account account)
+        public int CompareTo(Account acct) // IComparable set this class so that data is now able to be sorted
+        {
+            if (this.Description .Equals(acct.Description))     {
+                return 0;
+            }
+            if (this.Description.CompareTo(acct.Description) > 0)    {
+                return 1;
+            }
+            else     {
+                return -1;
+            }
+        }
+               
+           public void TransferTo(decimal Amount, Account account)
         {
             var BeforeWithdraw = GetBalance();
             Withdrw(Amount);
