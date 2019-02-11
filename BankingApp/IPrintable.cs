@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankingApp
-{
-    interface IPrintable
-    {
+namespace BankingApp {
+    interface IPrintable {
         string Print();
     }
 }

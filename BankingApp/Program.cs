@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankingApp
-{
-    class Program
-    {
+namespace BankingApp {
+    class Program {
 
-        static void Main(string[] args)
-        {
-            IPrintable[] accounts =
+        static void Main(string[] args) {
+            IAccount[] accounts =
             {
                 new Account ("An Account,"),
                 new Savings("A Savings,"),
                 new Checking("A Checking,")
             };
-            foreach (var account in accounts)
-            {
-                Console.WriteLine(account.Print());            
+
+            accounts[0].Withdraw(100000);
+
+            foreach (var account in accounts) {
+                Console.WriteLine(account.Print());
             }
             Console.ReadKey();
 

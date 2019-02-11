@@ -4,42 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankingApp
-{
-    class Savings : Account, IPrintable  // this is an Inheritance class. It has access to all the public methods in the Account class.
+namespace BankingApp {
+    class Savings : Account, IAccount  // this is an Inheritance class. It has access to all the public methods in the Account class.
     {
         private decimal IntRate { get; set; } = 0.01M;
 
-        public decimal GetIntRate()
-        {
+        public decimal GetIntRate() {
             return IntRate;
         }
 
-        public void SetIntRate(decimal NewIntRate)
-        {
+        public void SetIntRate(decimal NewIntRate) {
             IntRate = NewIntRate;
         }
 
-        public void PayInt()
-        {
+        public void PayInt() {
             var IntToBePaid = GetBalance() * GetIntRate();
             Deposit(IntToBePaid);
         }
 
-        public override string Print()
-        {
+        public override string Print() {
             return base.Print() + $" interest rate = {IntRate}";
         }
-        
-        public Savings(string NewDescription) : base(NewDescription)
-        {
+
+        public Savings(string NewDescription) : base(NewDescription) {
             SetIntRate(0.01m);
         }
-        
-        public Savings() : this(null)
-        {            
+
+        public Savings() : this(null) {
         }
-        
+
     }
 
 }
